@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="consulta_c2p_balance" model="ir.ui.view">
+            <field name="name">SofnetCorp C2P</field>
+            <field name="model">payment.inquiry</field>
+            <field name="arch" type="xml">
+            <form string="C2P Options">
+                <sheet>
+                    <!--field name="warning"/-->
+                    <!--div role="alert" class="alert alert-success"
+                        style="height:40px, width:30px, margin-button:1px;"
+                        attrs="{'invisible':[('warning','=',False)]}">
+                        Procesado Exitoso
+                    </div-->
+                    
+                    <group>
+                        <group>
+                            <field name="monto" placeholder="00.00" required="1"/> <!--sin formato moneda-->
+                            <!--field name="monto" placeholder="00.00" required="1" widget="monetary" options="{'currency_field': 'company_currency_id'}"/--> <!--con formato moneda-->
+                            <field name="numero_factura" placeholder="0000" required="1"/>
+                            <field name="tipo" placeholder="Compra" required="1"/>
+                            <field name="payment_reference" placeholder="123456" attrs="{'invisible':[('tipo','not in', 'compra')]}"/>
+                        </group>
+                        <group>
+                            <field name="movil_origen" placeholder="584141234567" required="1"/>
+                            <field name="movil_destino" placeholder="584141234567" required="1"/>
+                            <field name="numero_identificacion" placeholder="V12345678" required="1"/>
+                            <!--field name="clave_compra" placeholder="Cod de transacción" required="1"/-->
+                            <field name="clave_compra" placeholder="Cod de transacción" attrs="{'invisible':[('tipo','not in', 'compra')]}"/>
+                        </group>
+                        
+                    </group>
+                    <footer>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel" />
+                       
+                        <button name ="ProcessC2p" string="Procesar"  type="object" class="oe_highlight"/>
+
+                    </footer>
+                </sheet>
+            </form>
+            </field>
+        </record>
+        <record id="view_balance_c2p" model="ir.ui.view">
+            <field name="name">view.balance.c2p</field>
+            <field name="model">payment.inquiry</field>
+            <field name="arch" type="xml">
+                <tree string="tiendas y direcciones">
+                    <field name="numero_factura" />
+                    <field name="movil_origen" />
+                    <field name="numero_identificacion" />
+                    <field name="clave_compra" />
+                    <field name="resultado" />                  
+                </tree>
+            </field>
+        </record>
+    </data>
+    
+</odoo>

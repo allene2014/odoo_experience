@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="dual_currency_purchase_line_view" model="ir.ui.view">
+            <field name="name">dual.currency.purchase.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[1]/field[@name='order_line']/tree[1]/field[@name='taxes_id']" position="after">
+                    <field name="subtotal_dual"/>
+                    
+                </xpath>
+                 <xpath expr="//page[1]/field[@name='order_line']/tree[1]/field[@name='price_unit']" position="before">
+                    <field name="price_dual"/>
+                    
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="before">
+                    <field name="field_tax_base" />
+                </xpath>
+                <xpath expr="//field[@name='tax_totals_json']" position="replace">
+                    <div>
+                        <group class="oe_subtotal_footer oe_right">
+                            <field name="tax_totals_json" widget="account-tax-totals-field" nolabel="1" colspan="2"/>
+                        </group>
+                    </div>
+                    <div>
+                        <group class="oe_subtotal_footer oe_right">
+                            <field name="tax_totals_json2" widget="account-tax-totals-field" nolabel="1" colspan="2"/>
+                        </group>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+
+</odoo>

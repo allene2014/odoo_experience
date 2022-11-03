@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_frontend" inherit_id="web.assets_frontend" name="Isep Practices">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/isep_practices/static/src/css/style.css"/>
+            <script type="text/javascript" src="/isep_practices/static/src/js/webpractice.js"/>
+        </xpath>
+    </template>
+
+    <!--
+    <template id="isep_practices.webpractice"  name="Isep Practices Website">
+        <link rel="stylesheet" href="/isep_practices/static/css/style.css"/>
+        <script type="text/javascript" src="/isep_practices/static/js/webpractice.js"/>
+    </template>
+    -->
+    <template id="practice_submenu" name="Link to submenu frontend portal" inherit_id="portal.frontend_layout">
+        <xpath expr="//a[@id='o_logout']" position="before">
+            <a href="/my/practices" role="menuitem" class="dropdown-item">Practice</a>
+        </xpath>
+    </template>
+    <template id="my_practices_form" name="My practice">
+        <!--
+        <head>
+            <t t-call-assets="isep_practices.webpractice" t-js="false"/>
+        </head>
+        -->
+         <t t-call="portal.portal_layout">
+            <t t-set="additional_title">Gestión de Prácticas</t>
+            <h3>Gestión de Prácticas</h3>
+             <form action="/my/practices" method="post" enctype="multipart/form-data">
+                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div class="row o_portal_details">
+                    <div class="container">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <t t-if="student == 'invalid'">
+                                    <div class="col-lg-12">
+                                        <div class="alert alert-danger" role="alert">
+                                            <p>hola</p><br/>
+                                        </div>
+                                    </div>
+                                </t>
+                                <div t-attf-class="form-group col-xl-12 line">
+                                    <label class="col-form-label" for="">Código postal</label>
+                                    <select name="res_better_zip" t-attf-class="form-control" id="code_zip">
+                                            <option value="" >----</option>
+                                            <t t-foreach="res_better_zip" t-as="zip_code">
+                                                <option name="op_zip" t-att-value="zip_code.name" id="option-zip">
+                                                    <t t-esc="zip_code.name"/><span>-</span><t t-esc="zip_code.city"/><span>-</span><t t-esc="zip_code.state_id.name"/>
+                                                </option>
+                                            </t>
+                                    </select>
+
+
+                                </div>
+                                <div t-attf-class="form-group col-xl-12 line">
+                                    <label class="col-form-label" for="check_in">Admission-Curso</label>
+                                    <select name="op_admission_id" t-attf-class="form-control ">
+                                        <t t-foreach="admissions" t-as="admission">
+                                            <option t-att-value="admission.id">
+                                                <t t-esc="admission.application_number"/><span>-</span><t t-esc="admission.course_id.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+
+                                <div t-attf-class="form-group col-xl-12 line">
+                                    <label class="col-form-label" for="">Turno Disponible</label>
+                                    <select name="schedule" t-attf-class="form-control" id="">
+                                            <option value="" selected="selected">-----------------</option>
+                                            <t t-foreach="schedule" t-as="schedules">
+                                                <option t-att-value="schedules.id" id="">
+                                                    <t t-esc="schedule.name"/>
+                                                </option>
+                                            </t>
+                                    </select>
+
+
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right mb32 space " id="btn-zip">
+                                    filter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+             </form>
+
+            <form action="/my/practice/create" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div class="row o_portal_details">
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <t t-if="student != ''">
+                                <div t-attf-class="form-group col-xl-6">
+                                <h4>Datos Academicos</h4><br/>
+                                <label class="col-form-label" for="op_student_id">Estudiante</label>
+                                    <input type="text" t-att-value="student[0].name" t-attf-class="form-control " readonly="True"/>
+                                    <input type="hidden" name="op_student_id" t-att-value="student[0].id" t-attf-class="form-control "/>
+                                    <input type="hidden" name ="op_admission_id" t-att-value="server_admission" t-attf-class="form-control"/>
+                                    <!--
+                                    <label class="col-form-label" for="check_in">Admission-Curso</label>
+                                    <select name="op_admission_id" t-attf-class="form-control ">
+                                        <t t-foreach="admissions" t-as="admission">
+                                            <option t-att-value="admission.id">
+                                                <t t-esc="admission.application_number"/><span>-</span><t t-esc="admission.course_id.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                    -->
+                                </div>
+                            <div t-attf-class="form-group col-xl-12">
+                                <h4>Datos de la Práctica</h4><br/>
+                                <div class="container line">
+                                    <div class="col1">
+                                        <!--
+                                        <label>Turno:  </label>
+                                        <input type="checkbox" id="morning" name="morning" value="morning"/> Mañana
+                                        <input type="checkbox" id="afternoon" name="afternoon" value="afternoon"/> Tarde<br/>
+                                        -->
+                                        <!--
+                                        <label class="col-form-label" for="res_better_zip_id">Código</label>
+                                        <select name="res_better_zip" t-attf-class="form-control" id="code_zip">
+                                            <t t-foreach="res_better_zip" t-as="zip_code">
+                                                <option t-att-value="zip_code.id">
+                                                    <t t-esc="zip_code.name"/><span>-</span><t t-esc="zip_code.city"/><span>-</span><t t-esc="zip_code.state_id.name"/>
+                                                </option>
+                                            </t>
+                                        </select>-->
+
+                                        <label class="col-form-label" for="center_id">Centro</label>
+                                        <select name="center_id" t-attf-class="form-control " id="center_id">
+                                            <t t-foreach="center" t-as="centers">
+                                                <option t-att-value="centers.id">
+                                                    <t t-esc="centers.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                        <label class="col-form-label" for="tutor_id">Tutor</label>
+                                        <select name="tutor_id" t-attf-class="form-control ">
+                                            <t t-foreach="tutor" t-as="tutors">
+                                                <option t-att-value="tutors.id">
+                                                    <t t-esc="tutors.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                        <!--
+                                        <label class="col-form-label" for="total_hours">Hora Total</label>
+                                        <input type="text" name="total_hours" t-attf-class="form-control "  id="total_hours"/>
+                                        -->
+                                    </div>
+                                    <div class="col2 space down">
+                                        <label class="col-form-label" for="start_date">Fecha Inicial</label>
+                                        <input type="date" name="start_date" t-attf-class="form-control" id="start_date"/>
+                                        <label class="col-form-label" for="final_date">Fecha Final</label>
+                                        <input type="date" name="final_date" t-attf-class="form-control "  id="final_date"/>
+                                        <!--
+                                        <label class="col-form-label" for="weekly_hours">Horas Semanales</label>
+                                        <input type="text" name="weekly_hours" t-attf-class="form-control "  id="weekly"/>
+                                        -->
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="redirect" t-att-value="redirect"/>
+                                <div class="clearfix">
+                                    <button type="submit" class="btn btn-primary float-right mb32 " id="submit">
+                                        Register
+                                        <span class="fa fa-long-arrow-right"/>
+                                    </button> <span id="text_submit"></span>
+                            <!--
+                            <a href="/my/practices" type="button" class="btn btn-primary float-left mb32 ">
+                                Back
+                                <span class="fa fa-long-arrow-left"/>
+                            </a>
+                            -->
+                                </div>
+                           </t>
+                           <t t-else="">
+                                <h1 style="text-align: center;">No puedes registrar prácticas</h1>
+                           </t>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+         </t>
+    </template>
+</odoo>

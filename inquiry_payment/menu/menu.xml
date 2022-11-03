@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_consulta_c2p" model="ir.actions.act_window">
+            <field name="name">C2P Mercantil</field>
+            <field name="res_model">payment.inquiry</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="consulta_c2p_balance"/>
+            <!--field name="view_id" ref="consulta_c2p_wizard"/USANDO WIZARD-->
+            <field name="target">new</field>
+        </record>
+
+        <record id="action_balance_c2p" model="ir.actions.act_window">
+            <field name="name">Balance C2P Mercantil</field>
+            <field name="res_model">payment.inquiry</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_balance_c2p"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            id="menu_c2p_mercantil"
+            name="function c2p mercantil"
+            parent="point_of_sale.menu_point_config_product"
+            sequence="2"
+            action="action_consulta_c2p"
+        />
+
+        <menuitem
+            id="menu_view_balance"
+            name="balance c2p mercantil"
+            parent="point_of_sale.menu_point_config_product"
+            sequence="3"
+            action="action_balance_c2p"
+        />
+
+    </data> 
+</odoo>

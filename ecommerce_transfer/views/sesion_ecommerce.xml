@@ -1,0 +1,8 @@
+<odoo>
+<data>
+<record model="pos.config" id="pos_ecommerce_main">
+    <field name="name">ecommerce</field>
+    <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+</record>
+</data>
+</odoo>

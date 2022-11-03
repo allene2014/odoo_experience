@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="register_pay_ecommerce.list">
+      <field name="name">register_pay_ecommerce list</field>
+      <field name="model">register_pay_ecommerce.register_pay_ecommerce</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="register_pay_ecommerce.action_window">
+      <field name="name">register_pay_ecommerce window</field>
+      <field name="res_model">register_pay_ecommerce.register_pay_ecommerce</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="register_pay_ecommerce.action_server">
+      <field name="name">register_pay_ecommerce server</field>
+      <field name="model_id" ref="model_register_pay_ecommerce_register_pay_ecommerce"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="register_pay_ecommerce" id="register_pay_ecommerce.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="register_pay_ecommerce.menu_1" parent="register_pay_ecommerce.menu_root"/>
+    <menuitem name="Menu 2" id="register_pay_ecommerce.menu_2" parent="register_pay_ecommerce.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="register_pay_ecommerce.menu_1_list" parent="register_pay_ecommerce.menu_1"
+              action="register_pay_ecommerce.action_window"/>
+    <menuitem name="Server to list" id="register_pay_ecommerce" parent="register_pay_ecommerce.menu_2"
+              action="register_pay_ecommerce.action_server"/>
+-->
+  </data>
+</odoo>

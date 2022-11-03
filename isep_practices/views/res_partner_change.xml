@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_res_partner_change_form_inherit" model="ir.ui.view">
+            <field name="name">res_partner_change.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="priority" eval="2"/>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <button name="toggle_active" position="before">
+                     <button class="oe_stat_button" type="action"
+                            attrs="{'invisible': [('center', '=', False)]}"
+                             name="%(isep_practices.act_open_practice_practice_view)d"
+                            icon="fa-puzzle-piece">
+                            <field string="Prácticas" name="student_practice_count" widget="statinfo"/>
+                     </button>
+                 </button>
+                <xpath expr="//sheet/group[1]/group[2]/field[@name='email']" position="replace">
+                    <field name="email" required="1"/>
+                </xpath>
+                <xpath expr="//sheet/group[1]/group[1]/field[@name='vat']" position="after">
+                    <field name="name_official"  attrs="{'invisible': [('center','=', False)], 'required': [('center','=', True)]}"/>
+                    <field name="coordinator" attrs="{'invisible': [('center','=', False)], 'required': [('center','=', True)]}"/>
+                    <field name="maximum_places" attrs="{'invisible': [('center','=', False)], 'required': [('center','=', True)]}"/>
+                    <field name="practice_schedule_id" attrs="{'invisible': [('center','=', False)], 'required': [('center','=', True)]}"/>
+                    <field name="signatory" attrs="{'invisible': [('center','=', False)], 'required': [('center','=', True)]}"/>
+                    <field name="dni" attrs="{'invisible': [('tutor','=', False)], 'required': [('tutor','=', True)]}"/>
+                </xpath>
+                <notebook position="inside">
+                    <page name="Course" string="Course" attrs="{'invisible': [('center','=', False)]}">
+                        <field name="center_course_ids"/>
+                    </page>
+                    <page name="Tutor" string="Tutor" attrs="{'invisible': [('center','=', False)]}">
+                        <field name="center_tutor_ids"/>
+                    </page>
+                    <page name="Course" string="Course" attrs="{'invisible': [('tutor','=', False)]}">
+                        <field name="tutor_course_ids"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>

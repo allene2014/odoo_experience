@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="practice_type_form_internship_request_tree" model="ir.ui.view">
+            <field name="name">practice.type.form.internship.request.tree</field>
+            <field name="model">practice.type.form.internship.request</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Internship request">
+                    <field name="name_student"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="practice_type_form_internship_request_form" model="ir.ui.view">
+            <field name="name">practice.type.form.internship.request.form</field>
+            <field name="model">practice.type.form.internship.request</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="TypeForm Completion Questionnaire">
+
+                    <sheet>
+                        <group col="4">
+                            <sheet>
+                                <group string="Information">
+                                    <field name="specialty_bool" invisible="1"/>
+                                    <field name="studying_year_bool" invisible="1"/>
+                                    <field name="age_range_bool" invisible="1"/>
+                                    <field name="name_student" required="1"/>
+                                    <field name="specialty" required="1" attrs="{'invisible': [('specialty_bool','=', False)]}"/>
+                                    <field name="master" required="1"/>
+                                    <field name="campus" required="1"/>
+                                    <field name="option_practice" required="1"/>
+                                    <field name="turn" required="1" attrs="{'invisible': [('option_practice','=','Convalidación (solo aplica a alumnos con experiencia previa en el ámbito de formación)')]}"/>
+                                    <field name="days" required="1" attrs="{'invisible': [('option_practice','=','Convalidación (solo aplica a alumnos con experiencia previa en el ámbito de formación)')]}"/>
+                                    <field name="name_center" attrs="{'invisible': [('option_practice','!=', 'Centro propuesto por el alumno (el alumno facilita los contactos de centros)')]}"/>
+                                    <field name="name_contact_center" attrs="{'invisible': [('option_practice','!=', 'Centro propuesto por el alumno (el alumno facilita los contactos de centros)')]}"/>
+                                    <field name="email_center" attrs="{'invisible': [('option_practice','!=', 'Centro propuesto por el alumno (el alumno facilita los contactos de centros)')]}"/>
+                                    <field name="province" attrs="{'invisible': [('option_practice','!=', 'Centro propuesto por el alumno (el alumno facilita los contactos de centros)')]}"/>
+                                    <field name="city" attrs="{'invisible': [('option_practice','!=', 'Centro propuesto por el alumno (el alumno facilita los contactos de centros)')]}"/>
+                                    <field name="postal_code" attrs="{'invisible': [('option_practice','!=', 'Centro propuesto por el alumno (el alumno facilita los contactos de centros)')]}"/>
+                                    <field name="studying_year" attrs="{'invisible': [('studying_year_bool','=', 'False')]}"/>
+                                    <field name="postal_code" attrs="{'invisible': [('age_range_bool','=', 'False')]}"/>
+                                </group>
+                            </sheet>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="practice_type_form_internship_request_search" model="ir.ui.view">
+            <field name="name">practice.type.form.internship.request.search</field>
+            <field name="model">practice.type.form.internship.request</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="TypeForm Internship Request">
+                    <field name="name_student"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_practice_type_form_internship_request_view">
+            <field name="name">TypeForm Assessment Tutor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">practice.type.form.internship.request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="search_view_id" ref="practice_type_form_internship_request_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_practice_type_form_internship_request_form">
+            <field name="act_window_id" ref="act_open_practice_type_form_internship_request_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="practice_type_form_internship_request_form"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_practice_type_form_internship_request_tree">
+            <field name="act_window_id" ref="act_open_practice_type_form_internship_request_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="practice_type_form_internship_request_tree"/>
+        </record>
+
+    </data>
+</odoo>

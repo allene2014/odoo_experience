@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="practice_view_kanban" model="ir.ui.view">
+            <field name="name">practice.kanban</field>
+            <field name="model">practice.practice</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="status_phase" quick_create="false">
+                    <field name="status_phase"/>
+                    <progressbar field="status_phase" colors='{"in progress": "warning","started": "success", "pending by rating": "warning", "finished": "danger"}'/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                                <div>
+                                    <strong class="o_kanban_record_title"><span><field name="op_student_id"/></span></strong>
+                                </div>
+                                <div>
+                                    <span class="o_kanban_record_subtitle"><field name="op_course_id"/></span>
+                                </div>
+                                <div>
+                                    <field name="center_id"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_practice_practice_tree" model="ir.ui.view">
+            <field name="name">practice.practice.tree</field>
+            <field name="model">practice.practice</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Practice">
+                    <field name="op_student_id"/>
+                    <field name="op_course_id"/>
+                    <field name="final_date"/>
+                    <field name="status_phase"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_practice_practice_form" model="ir.ui.view">
+            <field name="name">practice.practice.form</field>
+            <field name="model">practice.practice</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Practice">
+                    <header>
+                        <button name="action_create_signature_request" type="object" string="Enviar a firmar"
+                            class="oe_highlight"/>
+                        <field name="status_phase" widget="statusbar" statusbar_visible="in progress,started,pending by rating,finished" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/><!--clickable="True"-->
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object"
+                                    class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                       options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+                        <group col="4">
+                            <sheet>
+                                <group string="Datos Academicos">
+                                    <field name="op_student_id" required="1"/>
+                                    <field name="op_admission_id" required="1"/>
+                                    <field name="op_course_id" required="1"/>
+                                </group>
+                            </sheet>
+                            <sheet>
+                                <group string="Datos de la Práctica">
+                                    <field name="status_sign_framework" style="border-radius:20px; border-style:none; padding:5px;" class="oe_inline" widget="label_selection" options="{'classes': {'cancelled': 'danger','Signatures Pending': 'warning','Fully Signed': 'success'}}"/>
+                                    <field name="status_sign_specific" style="border-radius:20px; border-style:none; padding:5px;" class="oe_inline" widget="label_selection" options="{'classes': {'cancelled': 'danger','Signatures Pending': 'warning','Fully Signed': 'success'}}"/>
+                                    <field name="morning"/>
+                                    <field name="afternoon"/>
+                                    <field name="center_id" required="1"/>
+                                    <field name="tutor_id" required="1"/>
+                                    <field name="total_hours" required="1"/>
+                                    <field name="weekly_hours" required="1"/>
+                                    <field name="start_date" required="1"/>
+                                    <field name="final_date" required="1"/>
+                                    <field name="remuneration_center" attrs="{'invisible': [('payment_center','=', False)], 'required': [('payment_center','=', True)]}"/>
+                                    <field name="payment_center"/>
+                                </group>
+                            </sheet>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="view_practice_practice_search" model="ir.ui.view">
+            <field name="name">practice.practice.search</field>
+            <field name="model">practice.practice</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Practice">
+                    <field name="op_course_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_practice_practice_view">
+            <field name="name">practice</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">practice.practice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <field name="search_view_id" ref="view_practice_practice_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_practice_practice_form">
+            <field name="act_window_id" ref="act_open_practice_practice_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_practice_practice_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_practice_practice_tree">
+            <field name="act_window_id" ref="act_open_practice_practice_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_practice_practice_tree"/>
+        </record>
+
+    </data>
+</odoo>

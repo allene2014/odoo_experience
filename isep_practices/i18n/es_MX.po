@@ -1,0 +1,408 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* isep_practices
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0e+e-20200703\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-08 09:28+0000\n"
+"PO-Revision-Date: 2021-01-08 09:28+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: isep_practices
+#: model:ir.ui.menu,name:isep_practices.menu_isep_practices_root
+#: model:ir.ui.menu,name:isep_practices.menu_isep_practice_menu
+msgid "Practice"
+msgstr "Prácticas"
+
+#. module: isep_practices
+#: model:ir.ui.menu,name:isep_practices.menu_isep_contact_menu
+msgid "Tutor/Center"
+msgstr "Tutor/Centro"
+
+#. module: isep_practices
+#: model:ir.ui.menu,name:isep_practices.menu_isep_typeform_registration_request_menu
+msgid "Typeform Registration Request"
+msgstr "Formularios TypeForm"
+
+#. module: isep_practices
+#: model:ir.ui.menu,name:isep_practices.submenu_center
+msgid "Update Center"
+msgstr "Actualización de Centros"
+
+#. module: isep_practices
+#: model:ir.ui.menu,name:isep_practices.submenu_assessment_tutor
+msgid "Assessment Tutor"
+msgstr "Valoración del Tutor al Estudiante"
+
+#. module: isep_practices
+#: model:ir.ui.menu,name:isep_practices.submenu_completion_questionnaire
+msgid "Completion Questionnaire"
+msgstr "Cuestionario de Finalización"
+
+#. module: isep_practices
+#: model:ir.ui.menu,name:isep_practices.submenu_internship_request
+msgid "Internship Request"
+msgstr "Solicitud de Prácticas"
+
+#. module: isep_practices
+#: model:ir.ui.menu,name:isep_practices.submenu_temary
+#: model:ir.actions.act_window,name:isep_practices.act_open_practice_temary_view
+#: model:ir.model,name:isep_practices.model_practice_temary
+msgid "Temary"
+msgstr "Temario"
+
+#. module: isep_practices
+#: model:ir.model,name:isep_practices.model_practice_center_course
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__op_course_id
+#: model:ir.model.fields,field_description:isep_practices.field_practice_temary__op_course_id
+#: model:ir.model.fields,field_description:isep_practices.field_practice_center_course__op_course_id
+#: model:ir.model.fields,field_description:isep_practices.field_practice_tutor_course__op_course_id
+#: model_terms:ir.ui.view,arch_db:isep_practices.view_practice_center_course_form
+msgid "Course"
+msgstr "Curso"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_temary__name
+#: model:ir.model.fields,field_description:isep_practices.field_practice_schedule__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_temary__content
+msgid "Content"
+msgstr "Contenido"
+
+#. module: isep_practices
+#: model:ir.ui.menu,name:isep_practices.submenu_tutor_course
+#: model:ir.actions.act_window,name:isep_practices.act_open_practice_tutor_course_view
+#: model:ir.model,name:isep_practices.model_practice_tutor_course
+msgid "Association course tutor"
+msgstr "Asociación curso tutor"
+
+#. module: isep_practices
+#: model:ir.ui.menu,name:isep_practices.submenu_schedule
+#: model:ir.actions.act_window,name:isep_practices.act_open_practice_schedule_view
+#: model:ir.model,name:isep_practices.model_practice_schedule
+#: model:ir.model.fields,field_description:isep_practices.field_practice_center__practice_schedule_id
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__practice_schedule_id
+#: model:ir.model.fields,field_description:isep_practices.field_res_partner__practice_schedule_id
+msgid "Schedule"
+msgstr "Horario"
+
+#. module: isep_practices
+#: model_terms:ir.ui.view,arch_db:isep_practices.view_practice_schedule_form
+msgid "Schedule days"
+msgstr "Calendario"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_schedule_days__day
+msgid "Day"
+msgstr "Día"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_schedule_days__start_time
+msgid "Start Time"
+msgstr "Fecha Inicial"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_schedule_days__end_time
+#: model:ir.model,name:isep_practices.model_practice_practice
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__final_date
+msgid "End Time"
+msgstr "Fecha Final"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_center__official_name
+msgid "Official Name"
+msgstr "Nombre Oficial"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_center__schedule
+msgid "Schedule of Aplication"
+msgstr "Horario desde el sistema de aplicación"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_center__email
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__email
+msgid "Email"
+msgstr "Correo Electrónico"
+
+#. module: isep_practices
+#: model:ir.model,name:isep_practices.model_res_partner_center
+#: model:ir.model.fields,field_description:isep_practices.field_res_partner__center
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__center_id
+msgid "Center"
+msgstr "Centro"
+
+#. module: isep_practices
+#: model:ir.model,name:isep_practices.model_res_partner_center
+#: model:ir.model.fields,field_description:isep_practices.field_res_partner__tutor
+msgid "Is Tutor"
+msgstr "Tutor"
+
+#. module: isep_practices
+#: model:ir.model,name:isep_practices.model_res_partner_center
+#: model:ir.model.fields,field_description:isep_practices.field_res_partner__name_official
+msgid "Name Official"
+msgstr "Nombre Oficial del Centro"
+
+#. module: isep_practices
+#: model:ir.model,name:isep_practices.model_res_partner_center
+#: model:ir.model.fields,field_description:isep_practices.field_res_partner__coordinator
+#: model:ir.model.fields,field_description:isep_practices.field_practice_center__coordinator
+msgid "Coordinator"
+msgstr "Coordinador del Centro"
+
+#. module: isep_practices
+#: model:ir.model,name:isep_practices.model_res_partner_center
+#: model:ir.model.fields,field_description:isep_practices.field_res_partner__maximum_places
+msgid "Maximum Places"
+msgstr "Maximo de Plazas"
+
+#. module: isep_practices
+#: model:ir.model,name:isep_practices.model_res_partner_center
+#: model:ir.model.fields,field_description:isep_practices.field_res_partner__signatory
+msgid "Signatory"
+msgstr "Firmante"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__op_student_id
+msgid "Student"
+msgstr "Estudiante"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__op_admission_id
+msgid "Admission"
+msgstr "Admisión"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__status_sign_framework
+msgid "Status Sign Framework Agreement"
+msgstr "Convenio Marco"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__status_sign_specific
+msgid "Status Sign Specific Agreement"
+msgstr "Convenio Especifico"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__morning
+msgid 'Morning'
+msgstr "Mañana"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__afternoon
+msgid 'Afternoon'
+msgstr "Tarde"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__total_hours
+msgid 'Total Hours'
+msgstr "Hora Total"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__weekly_hours
+msgid 'Weekly Hours'
+msgstr "Horas Semanales"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__start_date
+msgid 'Start Date'
+msgstr "Fecha Inicio"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__payment_center
+msgid 'Payment to the Center'
+msgstr "Pago al Centro"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_practice__remuneration_center
+msgid 'Remuneration Center'
+msgstr "Monto a Pagar"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__name
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__name_center
+msgid 'Name of Center'
+msgstr "Nombre del Centro"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__coordinator
+msgid 'Name of Coordinator'
+msgstr "Nombre del Coordinador"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__signatory_name
+msgid 'Signatory Name'
+msgstr "Nombre del Firmante"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__postal_code
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__update_code
+msgid 'Postal Code'
+msgstr "Código Postal"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__province
+msgid 'Province'
+msgstr "Provincia"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__city
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__city
+msgid 'City'
+msgstr "Ciudad"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__street
+msgid 'Street'
+msgstr "Calle"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__number_places
+msgid 'Number Places'
+msgstr "Numero de Plazas"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__phone
+msgid 'Phone'
+msgstr "Telefono"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__mobil
+msgid 'Mobil'
+msgstr "Movil"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__website
+msgid 'Website'
+msgstr "Sitio Web"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__turn
+msgid 'Turn'
+msgstr "Turno"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__days
+msgid 'Days'
+msgstr "Días"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__day_order
+msgid 'ORDER'
+msgstr "Días Ordenados"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__update
+msgid 'Location Update'
+msgstr "Actualizar Ubicación"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__create_schedule
+msgid 'Create Schedule'
+msgstr "Actualizar Horario"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__update_zip
+msgid 'Localitation'
+msgstr "Ubicación"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__update_country
+msgid 'Country Update'
+msgstr "Pais Actualizado"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__update_province
+msgid 'Province Update'
+msgstr "Provincia Actualizada"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_center__update_city
+msgid 'City Update'
+msgstr "Ciudad Actualizada"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__name_tutor
+msgid 'Name of Tutor'
+msgstr "Nombre del Tutor"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__name_student
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_completion_questionnaire__name_student
+msgid 'Name of Student'
+msgstr "Nombre del Estudiante"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__area
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_completion_questionnaire__area
+msgid 'Area'
+msgstr "Area"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__assessment_responsibility
+msgid 'Assessment in Responsibility'
+msgstr "Responsabilidad"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__assessment_started
+msgid 'Assessment Started'
+msgstr "Iniciativa"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__assessment_teacher_interaction
+msgid 'Assessment Interaction'
+msgstr "Interación con los Profesionales del Centro"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__assessment_patients_interaction
+msgid 'Patients Interaction'
+msgstr "Interación con los Pacientes y Familiares"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__assessment_capacity_observation
+msgid 'Observation Capacity'
+msgstr "Capacidad de Observación"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__assessment_capacity_participation
+msgid 'Capacity Participation'
+msgstr "Capacidad de Participación"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__assessment_meets_set_objectives
+msgid 'Meets Set Objectives'
+msgstr "Cumple los Objetivos Marcados por el Centro"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__assessment_ability_to_take_cases
+msgid 'ability to take cases'
+msgstr "Capacidad para asumir casos"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__assessment_involvement_development_material
+msgid 'Involvement in the Development of the Material'
+msgstr "Implicación en la elaboración del material"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_assessment_tutor__assessment_evaluation_internship_period_general
+msgid 'Evaluation of the internship period in general'
+msgstr "Evaluación del periodo de prácticas en general"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_completion_questionnaire__modality
+msgid 'Modality'
+msgstr "Modalidad"
+
+#. module: isep_practices
+#: model:ir.model.fields,field_description:isep_practices.field_practice_type_form_completion_questionnaire__campus
+msgid 'Campus'
+msgstr 'Sede'

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_isep_practices_root" name="Practice"
+                  sequence="10"
+                  web_icon="isep_practices,static/description/practice.png"/>
+
+        <menuitem id="menu_isep_practice_menu" name="Practice"
+                  sequence="20"
+                  parent="isep_practices.menu_isep_practices_root"
+                  action="act_open_practice_practice_view"
+                  groups="base.group_system"/> <!--si quieres colocar submenus elimina (action y groups y agregalos como los que están comentados #submenus)-->
+        <menuitem id="menu_isep_contact_menu" name="Tutor/Center"
+                  sequence="20"
+                  parent="isep_practices.menu_isep_practices_root"
+                  action="contacts.action_contacts"
+                  groups="base.group_system"/>
+
+        <menuitem id="menu_isep_typeform_registration_request_menu" name="Typeform Registration Request"
+                  sequence="20"
+                  parent="isep_practices.menu_isep_practices_root"/>
+
+        <menuitem id="submenu_center" name="Update Center"
+                  sequence="12"
+                  groups="base.group_system"
+                  parent="menu_isep_typeform_registration_request_menu"
+                  action="act_open_practice_type_form_center_view"/>
+
+        <menuitem id="submenu_assessment_tutor" name="Assessment Tutor"
+                  sequence="13"
+                  groups="base.group_system"
+                  parent="menu_isep_typeform_registration_request_menu"
+                  action="act_open_practice_type_form_assessment_tutor_view"/>
+
+        <menuitem id="submenu_completion_questionnaire" name="Completion Questionnaire"
+                  sequence="14"
+                  groups="base.group_system"
+                  parent="menu_isep_typeform_registration_request_menu"
+                  action="act_open_practice_type_form_completion_questionnaire_view"/>
+
+        <menuitem id="submenu_internship_request" name="Internship Request"
+                  sequence="15"
+                  groups="base.group_system"
+                  parent="menu_isep_typeform_registration_request_menu"
+                  action="act_open_practice_type_form_internship_request_view"/>
+
+<!--
+#submenus
+        <menuitem id="submenu_temary" name="Temary"
+                  sequence="12"
+                  groups="base.group_system"
+                  parent="menu_isep_practice_menu"
+                  action="act_open_practice_temary_view"/>
+
+        <menuitem id="submenu_tutor_course" name="Association course tutor"
+                  sequence="14"
+                  groups="base.group_system"
+                  parent="menu_isep_practice_menu"
+                  action="act_open_practice_tutor_course_view"/>
+
+        <menuitem id="submenu_schedule" name="Schedule"
+                  sequence="16"
+                  groups="base.group_system"
+                  parent="menu_isep_practice_menu"
+                  action="act_open_practice_schedule_view"/>
+
+
+        <menuitem id="submenu_practice" name="Practice"
+                  sequence="13"
+                  groups="base.group_system"
+                  parent="menu_isep_practice_menu"
+                  action="act_open_practice_practice_view"/>
+
+-->
+         <!-- Menu Módule Sign
+        <menuitem id="sign_request_menu" name="Signatures"
+                  sequence="12"
+                  parent="isep_practices.menu_sign"
+                  action="act_open_sign_template_view"
+                  groups="base.group_system"/>
+         Menu -->
+
+    </data>
+</odoo>

@@ -1,0 +1,61 @@
+<odoo>
+  <template id="register_payment_pagomovil_template" inherit_id="website_sale.confirmation">
+      <xpath expr="//div[@class='col-12 col-xl-auto']" position="inside">
+        <h3 class="mb24">Pagomovil</h3>
+        <div class="container col-md-12">
+        <a href="/register/pagomovil" class="btn-primary">Registrar Datos</a>                       
+        </div>
+      </xpath>
+    </template>
+    <template id="payment_form_register" name="formato_registro">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container col-md-4">
+                      <form action="/complete/register" method="POST">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                         <div t-att-class="'form-group col-lg-6' if bootstrap_formatting else 'form-group'">
+                            <input type="text" name="cedula" id="cedula" class="form-control" maxlength="10" placeholder="V1234567" data-is-required="true"/>
+                            </div>
+                            <div t-att-class="'form-group col-lg-6' if bootstrap_formatting else 'form-group'">
+                                <input type="text" name="num_tlf" id="num_tlf" class="form-control" maxlength="12" placeholder="04141234567" data-is-required="true"/>
+                            </div>
+                            <div t-att-class="'form-group col-lg-10' if bootstrap_formatting else 'form-group'">
+                                <input type="text" name="code_bank" id="code_bank" class="form-control" maxlength="10" placeholder="Numero de confirmacion" data-is-required="true"/>
+                            </div>
+                            <button type="submit" class="btn-primary">Enviar</button> 
+                        </form>                             
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </t>
+        
+    </template>
+    <template id="payment_register_done_template" name="registro_completo">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container col-md-4">
+                        <h1>Gracias!</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="alert alert-success" role="status">
+                                su pago se ha registrado con exito!
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </t>
+        
+    </template>
+</odoo>

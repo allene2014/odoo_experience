@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_practice_type_form_assessment_tutor_tree" model="ir.ui.view">
+            <field name="name">practice.type.form.assessment.tutor.tree</field>
+            <field name="model">practice.type.form.assessment.tutor</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="TypeForm Assessment Tutor">
+                    <field name="name_tutor"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_practice_type_form_assessment_tutor_form" model="ir.ui.view">
+            <field name="name">practice.type.form.assessment.tutor.form</field>
+            <field name="model">practice.type.form.assessment.tutor</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="TypeForm Assessment Tutor">
+                    <header>
+                        <button name="ratings_student" type="object" string="TEST"
+                            class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <sheet>
+                                <group string="Information">
+                                    <field name="name_tutor" required="1"/>
+                                    <field name="name_center" required="1"/>
+                                    <field name="name_student" required="1"/>
+                                    <field name="city" required="1"/>
+                                    <field name="area" required="1"/>
+                                    <field name="master_psychology_bool" invisible="1"/>
+                                    <field name="master_neuropsychology_bool" invisible="1"/>
+                                    <field name="master_study_bool" invisible="1"/>
+                                    <field name="master_speech_therapy_bool" invisible="1"/>
+                                    <field name="master_neuropsychology" attrs="{'invisible': [('master_neuropsychology_bool','=', False)]}"/>
+                                     <field name="master_psychology" attrs="{'invisible': [('master_psychology_bool','=', False)]}"/>
+                                    <field name="master_study" attrs="{'invisible': [('master_study_bool','=', False)]}"/>
+                                    <field name="master_speech_therapy" attrs="{'invisible': [('master_speech_therapy_bool','=', False)]}"/>
+                                </group>
+                            </sheet>
+                            <sheet>
+                                <group string="Assessment Tutor">
+                                    <field name="assessment_responsibility"/>
+                                        <field name="assessment_started"/>
+                                        <field name="assessment_teacher_interaction"/>
+                                        <field name="assessment_patients_interaction"/>
+                                        <field name="assessment_capacity_observation"/>
+                                        <field name="assessment_capacity_participation"/>
+                                        <field name="assessment_meets_set_objectives"/>
+                                        <field name="assessment_ability_to_take_cases"/>
+                                        <field name="assessment_involvement_development_material"/>
+                                        <field name="assessment_evaluation_internship_period_general"/>
+                                </group>
+                            </sheet>
+                        </group>
+                        <notebook colspan="4">
+                            <page name="Observations" string="Observations">
+                                <field name="assessment_observations"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="view_practice_type_form_assessment_tutor_search" model="ir.ui.view">
+            <field name="name">practice.type.form.assessment.tutor.search</field>
+            <field name="model">practice.type.form.assessment.tutor</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="TypeForm Assessment Tutor">
+                    <field name="name_tutor"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_practice_type_form_assessment_tutor_view">
+            <field name="name">TypeForm Assessment Tutor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">practice.type.form.assessment.tutor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="search_view_id" ref="view_practice_type_form_assessment_tutor_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_practice_type_form_assessment_tutor_form">
+            <field name="act_window_id" ref="act_open_practice_type_form_assessment_tutor_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_practice_type_form_assessment_tutor_form"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_practice_type_form_assessment_tutor_tree">
+            <field name="act_window_id" ref="act_open_practice_type_form_assessment_tutor_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_practice_type_form_assessment_tutor_tree"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Specific and Framework Agreement -->
+        <record id="specific_framework_agreement_mail" model="mail.template">
+            <field name="name">Specific and Framework Agreement Mail</field>
+            <field name="email_from">no-reply@isep.com</field>
+            <field name="subject">Solicitud de firma para el Convenio Específico ${object.name}</field>
+            <field name="email_to">${object.email}</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div class="container">
+                    <font color="#444444" face="verdana, sans-serif" size="2">
+                        <p>Si tienes dudas o necesitas mayor información por favor comunicate con la sede correspondiente.</p>
+                        <p>Sedes de práctica: </p>
+                        <strong> Barcelona: </strong><span>practicas@isep.es</span>
+                        <br>
+                        <strong> Madrid: </strong><span>practicasmadrid@isep.es</span>
+                        <br>
+                        <strong> Valencia: </strong><span>practicasvalencia@isep.es</span>
+                        <br>
+                        <p>Muchas gracias por tu colaboración.</p>
+                        <p>Atentamente,</p>
+                        <p>Departamento de prácticas ISEP.</p>
+                    </font>
+                </div>]]>
+            </field>
+        </record>
+    </data>
+</odoo>

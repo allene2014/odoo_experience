@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="dual_currency_order_line_view" model="ir.ui.view">
+            <field name="name">dual.currency.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[1]/field[@name='order_line']/tree[1]/field[@name='tax_id']" position="after">
+                    <field name="amount_dualc"/>
+                </xpath>
+                 <xpath expr="//page[1]/field[@name='order_line']/tree[1]/field[@name='price_unit']" position="before">
+                    <field name="price_dualc" />
+                </xpath>
+                <xpath expr="//group[@name='note_group']" position="replace">
+                   <group name="note_group" col="6" class="mt-2 mt-md-0">
+                        <group colspan="4">
+                        <field name="note" class="oe-bordered-editor" nolabel="1" placeholder="Terms and conditions..."/>
+                        </group>
+                        <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                        <field name="tax_totals_json" widget="account-tax-totals-field" nolabel="1" colspan="2"/>
+                        </group>
+                        <div class="oe_clear"/>
+                    </group>
+                    <div>
+                    <group name="note_group" col="6" class="mt-2 mt-md-0">
+                        <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                        <field name="tax_totals_dollar" widget="account-tax-totals-field" nolabel="1" colspan="2"/>
+                        </group>
+                        <div class="oe_clear"/>
+                    </group>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+
+</odoo>
+
+<!--group name="note_group" col="6" class="mt-2 mt-md-0">
+    <group colspan="4">
+        <field name="note" class="oe-bordered-editor" nolabel="1" placeholder="Terms and conditions..."/>
+    </group>
+    <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+        <field name="tax_totals_json" widget="account-tax-totals-field" nolabel="1" colspan="2"/>
+    </group>
+    <div class="oe_clear"/>
+</group-->
